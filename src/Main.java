@@ -12,6 +12,7 @@ public class Main {
 //            System.out.println("i = " + i);
 //        }
 //      De bartender-methode print aan de hand van een switch statement, het drankje dat deze persoon graag drinkt;
+//      test
 
         int number = 6;
         int input1 = 4;
