@@ -12,6 +12,16 @@ public class ifelse {
         System.out.println("Nu komt opdracht 5...");
         opdracht5();
         System.out.println("Nu komt opdracht 6...");
+        opdracht6();
+        System.out.println("Nu komt opdracht 7...");
+        opdracht7();
+        System.out.println("Nu komt opdracht 8...");
+        opdracht8();
+        System.out.println("Nu komt opdracht 9...");
+        opdracht9();
+        System.out.println("Nu komt opdracht 10...");
+        opdracht10();
+
     }
 
     private static void opdracht1() {
@@ -106,7 +116,7 @@ public class ifelse {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Voer jouw leeftijd in: ");
         int number1 = scanner.nextInt();
-        try{
+        try {
             if (number1 >= 0 && number1 <= 10) {
                 System.out.println("Jij bent een kind");
             } else if (number1 >= 10 && number1 <= 18) {
@@ -114,18 +124,153 @@ public class ifelse {
             } else if (number1 >= 18 && number1 <= 45) {
                 System.out.println("Jij bent een senior");
             }
-        }catch (NumberFormatException nfe) {
+        } catch (NumberFormatException nfe) {
             System.out.println("NumberFormat Exception: invalid input string");
         }
     }
+
     private static void opdracht6() {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter username");
+        System.out.println("Voer jouw text in");
+        String text = myObj.nextLine();  // Read user input
+        try {
+            if (text.length() < 10) {
+                System.out.println("Jouw text is: " + text + " karakters lang, en dus kort.");
+            } else if (text.length() >= 10 && text.length() <= 20) {
+                System.out.println("Jouw text is: " + text.length() + " karakters lang, en dus middellang.");
+            } else if (text.length() > 20) {
+                System.out.println("Jouw text is: " + text.length() + " karakters lang, en dus lang.");
+            }
+        } catch (NumberFormatException nfe) {
+            System.out.println("NumberFormat Exception: invalid input string");
+        }
+    }
 
-        String userName = myObj.nextLine();  // Read user input
-        System.out.println("Username is: " + userName);  // Output user input
+    private static void opdracht7() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Voer jouw jaar in: ");
+        int year = scanner.nextInt();
+        // year to be checked
+        boolean leap = false;
+        // if the year is divided by 4
+        if (year % 4 == 0) {
+            // if the year is century
+            if (year % 100 == 0) {
+                // if year is divided by 400
+                // then it is a leap year
+                if (year % 400 == 0)
+                    leap = true;
+                else
+                    leap = false;
+            } else
+                leap = true;
+        } else
+            leap = false;
+        if (leap)
+            System.out.println(year + " is een schrikkeljaar.");
+        else
+            System.out.println(year + " is geen schrikkeljaar.");
+    }
+
+    private static void opdracht8() {
+        Scanner myObjA = new Scanner(System.in);
+        System.out.println("Voer jouw getal in: ");
+        String ingevoerdeGetalA = myObjA.nextLine();
+
+        System.out.println("Voer nog een getal in: ");
+        String ingevoerdeGetalB = myObjA.nextLine();
+
+        System.out.println("Voer nog een getal in: ");
+        String ingevoerdeGetalC = myObjA.nextLine();
+
+        try {
+            if (Integer.parseInt(ingevoerdeGetalA) >= Integer.parseInt(ingevoerdeGetalB) && Integer.parseInt(ingevoerdeGetalA) >= Integer.parseInt(ingevoerdeGetalC)) {
+                System.out.println(Integer.parseInt(ingevoerdeGetalA) + " is het grootste getal.");
+            } else if (Integer.parseInt(ingevoerdeGetalB) < Integer.parseInt(ingevoerdeGetalA) && Integer.parseInt(ingevoerdeGetalB) >= Integer.parseInt(ingevoerdeGetalC)) {
+                System.out.println(Integer.parseInt(ingevoerdeGetalB) + " is the largest number.");
+            } else {
+                System.out.println(Integer.parseInt(ingevoerdeGetalC) + "is het grootste getal.");
+            }
+        } catch (NumberFormatException nfe) {
+            System.out.println("NumberFormat Exception: invalid input string");
+        }
+    }
+
+    private static void opdracht9() {
+        Scanner myObjA = new Scanner(System.in);
+        System.out.println("Voer een zijde in: ");
+        String zijde1 = myObjA.nextLine();
+
+        System.out.println("Voer nog een zijde in: ");
+        String zijde2 = myObjA.nextLine();
+
+        System.out.println("Voer nog een zijde in: ");
+        String zijde3 = myObjA.nextLine();
+
+        // Check for equilateral triangle
+        if (zijde1 == zijde2 && zijde2 == zijde3)
+            System.out.println("Gelijkbenige driehoek");
+
+            // Check for isosceles triangle
+        else if (zijde1 == zijde2 || zijde2 == zijde3 || zijde3 == zijde1)
+            System.out.println("Ongelijkzijdige driehoek");
+            // Otherwise scalene triangle
+        else
+            System.out.println("gelijkzijdige driehoek");
+    }
+
+    private static void opdracht10() {
+        // Stores two numbers
+        double num1, num2;
+
+        // Take input from the user
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Voer uw getallen in:");
+
+        // Take the inputs
+        num1 = sc.nextDouble();
+        num2 = sc.nextDouble();
+
+        System.out.println("Voer uw operatoren in (+,-,*,/):");
+
+        char op = sc.next().charAt(0);
+        double o = 0;
+
+        switch (op) {
+            // case to add two numbers
+            case '+':
+                o = num1 + num2;
+                break;
+
+            // case to subtract two numbers
+            case '-':
+                o = num1 - num2;
+                break;
+
+            // case to multiply two numbers
+            case '*':
+                o = num1 * num2;
+                break;
+
+            // case to divide two numbers
+            case '/':
+                o = num1 / num2;
+                break;
+
+            default:
+                System.out.println("U heeft de verkeerde input ingevoerd");
+        }
+
+        System.out.println("Het eindresultaat:");
+        System.out.println();
+
+        // print the final result
+        System.out.println(num1 + " " + op + " " + num2
+                + " = " + o);
     }
 }
-}
+
+
 
 
